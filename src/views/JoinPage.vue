@@ -7,28 +7,27 @@
 <body>
     <div class="login_form">
         <form @submit.prevent="submitForm">
-            <div id="idform">
+            <div class="idform">
                 <label for="id">아이디</label>
                 <input type="text" class="text_field" v-model="id" placeholder="아이디" @blur="checkDuplicate" />
                 <div class="idconfirm">
-                    <button class="idconfirm_chk">아이디 중복 확인</button>
-                    <div class="idconfirm_txt" v-if="!availableId">이미 사용중인 아이디입니다.</div>
+                    <button class="idconfirm_chk" @click="doubleChk">아이디 중복 확인</button>
+                    <div class="idconfirm_txt" v-if="doubleId">이미 사용중인 아이디입니다.</div>
                 </div>
-                <!-- 중복확인은 if문 써서 true,false로 하면 될거같은디? -->
             </div>
-            <div id="pwform">
+
+            <div class="pwform">
                 <label for="password">비밀번호</label>
-                <input type="password" class="text_field" v-model="password" placeholder="비밀번호"/>
+                <input type="password" class="text_field" v-model="password" placeholder="비밀번호" />
             </div>
-            <div id="nameform">
+
+            <div class="nameform">
                 <label for="name">이름</label>
-                <input type="text" class="text_field" v-model="name" placeholder="이름"/>
+                <input type="text" class="text_field" v-model="name" placeholder="이름" />
             </div>
+
             <div>
-                <!-- <router-link to="/"> -->
-                    <button type="submit" class="submit_btn">가입하기</button>
-                <!-- </router-link> -->
-                <!-- 가입하기 누르면 메인 이동 -->
+                <input type="submit" class="submit_btn" value="가입하기">
             </div>
         </form>
     </div>
@@ -36,39 +35,43 @@
 </template>
 
 <script>
+/* eslint-disable */
 // import { response } from 'express';
 
 export default {
-  name: 'JoinForm',
-  data () {
-    return {
-      id: '',
-      idConfirm: '',
-      password: '',
-      name: ''
+    name: 'JoinForm',
+    data () {
+        return {
+        id: '',
+        idConfirm: '',
+        password: '',
+        name: '',
+        doubleId: false
+        }
+    },
+    methods: {
+        submitForm () {
+        if (this.id === '' || this.password === '' || this.name === '') {
+            alert('빈칸을 모두 입력해주세요.');
+            return false;
+        }
+        alert('회원가입에 성공하였습니다.');
+        this.$router.push({name:'home'});
+        // input 값 모두 입력했을시에만 화면 넘어감
+    },
+    doubleChk () {
+        this.doubleId = true;
     }
-  },
-  methods: {
-    submitForm () {
-      console.log('dd')
+    // 평소에는 안나와있다가 중복체크 클릭 시 나오게 끔 구현은 했는데
+    // 백엔드랑 연결해서 다시 써야하긴 할 것 같음
     }
-    // async checkDuplicate () {
-    //     this.availableId = true;
-    //     const reponse = await this.checkDuplicateId(this.id)
-    //     if (!response.data) {
-    //         this.availableId = false;
-    //     }   else {
-    //         this.availableId = true;
-    //     }
-    //     }
-    // }
-  }
 }
 </script>
 
 <style scoped>
 .join_info {
     font-size: 13px;
+    margin-bottom: 20px;
 }
 label {
     float:left;
@@ -104,6 +107,7 @@ label {
     border: 1px solid gainsboro;
     width: 300px;
     margin-top: 5px;
+    margin-bottom: 5px;
     /* flex-direction: row; */
 }
 

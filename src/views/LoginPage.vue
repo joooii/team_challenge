@@ -6,19 +6,16 @@
 
     <body>
         <div class="login_form">
-            <form style="text-align:center;">
-                <input type="text" v-model="userId" name="id" class="text_field" placeholder="아이디"><br>
-                <input type="password" v-model="userPassword" name="password" class="text_field" placeholder="비밀번호"><br>
-                <div>
-                  <router-link to="/3-0">
-                    <button type="submit" @click="loginSubmit" class="submit_btn">로그인</button>
-                  </router-link>
-                  <!-- 로그인 누르면 메인으로 이동 -->
+            <form name="loginForm" style="text-align:center;">
+                <input type="text" v-model="userId" name="idInput" class="text_field" placeholder="아이디" ref="idInput" /><br>
+                <input type="password" v-model="userPassword" name="pwInput" class="text_field" placeholder="비밀번호" ref="pwInput" /><br>
+                <div class="submit_form">
+                    <input type="submit" @click="loginSubmit" class="submit_btn" value="로그인">
                 </div>
             </form>
             <div>
               <router-link to="/JoinPage">
-                <button class="login_join" onclick="location.href='#'">회원가입</button>
+                <button class="login_join">회원가입</button>
               </router-link>
               <!-- 회원가입 누르면 회원가입창 이동 -->
             </div>
@@ -40,39 +37,20 @@ export default {
   methods: {
     loginSubmit () {
       if (this.userId === '') {
-        alert('ID를 입력하세요.')
-        return
+        alert('아이디를 입력해주세요.');
+        this.$refs.idInput.focus();
+        return false;
       }
-      if (this.userPassword === '') {
-        alert('비밀번호를 입력하세요.')
-        return
+      else if (this.userPassword === '') {
+        alert('비밀번호를 입력해주세요.');
+        this.$refs.pwInput.focus();
+        return;
       }
-      alert('로그인 되었습니다.');
-      console.log('로그인 성공')
-      } // 로그인 팝업창
-    // }
-
-
-      // const saveData = {}
-      // saveData.userId = this.userId
-      // saveData.userPassword = this.userPassword
-    //   try {
-    //     this.$axios
-    //       .post(HOST + "/signin", JSON.stringify(saveData), {
-    //         headers: {
-    //           "Content-Type": `application/json`,
-    //         },
-    //       })
-    //       .then((res) => {
-    //         if (res.status === 200) {
-    //           // 로그인 성공시 처리해줘야할 부분
-    //         }
-    //       });
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-      // 위에는 db 어떻게 할 지 알아보고 해야 할 듯
+        alert('로그인 되었습니다.');
+        this.$router.push({name:'home'});
+        // input 값 모두 입력했을시에만 화면 넘어감
   }
+}
 }
 </script>
 <style scope>
