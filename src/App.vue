@@ -6,7 +6,7 @@
     <span class="4-0"><router-link to="/4-0">4-0</router-link></span>&nbsp;
     <span class="5-0"><router-link to="/5-0">5-0</router-link></span>&nbsp;
     <span class="6-0"><router-link to="/6-0">6-0</router-link></span>&nbsp;
-     <span class="login"><router-link to="/LoginPage">Login</router-link></span>&nbsp;
+    <span class="login"><router-link to="/LoginPage">Login</router-link></span>&nbsp;
     <span class="join"><router-link to="/JoinPage">Join</router-link></span>&nbsp;
     <span class="WriteReview"><router-link to="/WriteReview">WriteReview</router-link></span>&nbsp;
     <span class="MyReview"><router-link to="/MyReview">MyReview</router-link></span>&nbsp;
@@ -40,53 +40,59 @@ export default {
 nav{
   display: flex;
   align-items: center;
+  border-bottom: 1px solid gainsboro;
+  /* background-color: rgb(251, 228, 194); */
+  margin: 0;
+  padding: 16px;
 }
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  /* text-decoration: none; */
+}
+
 .logo{
   margin: auto;
 }
 .mypage{
   margin-right: 0px;
 }
-.container{
+/* .container{
   padding: 5%;
   flex-direction: column;
   padding-right: 20%;
   padding-left: 20%;
-}
+} */
 .account_section{
   float: left;
 }
 .remind_section{
   float: right;
 }
-.challenging_section{
+/* .challenging_section{
   float: left;
-}
-.finish_section{
+} */
+/* .finish_section{
   float: right;
-}
-.top{
+} */
+/* .top{
   height: 300px;
 }
 .bottom{
   height: 300px;
-}
+} */
 
-nav {
+/* nav {
   padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+} */
 
 nav a.router-link-exact-active {
   color: #42b983;
 }
-.search_challenge{
+/* .search_challenge{
   border: 1px solid;
-}
+} */
 #buttoncontainer {
   display:flex;
   justify-content: center;
@@ -103,8 +109,8 @@ nav a.router-link-exact-active {
 }
 
 #challengename{
- width:15%;
- border:2px;
+  width:15%;
+  border:2px;
   border-color:black;
   border-style:solid;
   margin-left:15px;
@@ -118,35 +124,38 @@ nav a.router-link-exact-active {
   margin-top:10px;
   margin-bottom:10px;
 }
+/* 얘 전역변수? 암튼 그거 */
 .list{
   margin:0 auto;
   height:150px;
   width:90%;
   border-color:black;
 }
-nav{
+/* nav{
   display: flex;
   align-items: center;
-}
+} */
 .logo{
   margin: auto;
 }
-.mypage{
+/* .mypage{
   margin-right: 0px;
-}
+} */
 
-nav {
+/* nav {
   padding: 30px;
-}
+} */
 
-nav a {
+/* nav a {
   font-weight: bold;
   color: #2c3e50;
-}
+} */
 
-nav a.router-link-exact-active {
+/* nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
+
+/* 이전버튼 */
 .back {
   position: absolute;
   bottom: 5%;
@@ -155,5 +164,9 @@ nav a.router-link-exact-active {
 #back {
   height: 50px;
   width: 100px;
+  border: none;
+  background-color: tomato;
+  color: white;
+  border-radius: 10px;
 }
 </style>

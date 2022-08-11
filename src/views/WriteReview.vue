@@ -123,5 +123,6 @@ footer {
     color:white;
     width: 200px;
     font-size: 14px;
+    border-radius: 10px;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
 <body>
     <div class="make_chal">
+        <h1>챌린지 등록</h1>
         <form class="chal_form">
             <p>챌린지명 <input type="text" name="name" class="text_field"></p>
             <p>챌린지 총 기간 <input type="text" name="period" class="text_field"></p>
@@ -42,10 +43,10 @@
     margin-bottom: 10px;
 }
 footer {
-    width: 98%;
     height: 80px;
     bottom: 0px;
-    position: absolute;
+    position:absolute;
+    right:5%;
 }
 .footer_right {
     border: none;
@@ -57,7 +58,10 @@ footer {
     width: 200px;
     font-size: 14px;
     color: white;
-}#search_bar {
+    border-radius: 10px;
+}
+
+#search_bar {
 width: 80%;
 border: white solid 0px;
 }
