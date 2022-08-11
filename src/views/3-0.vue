@@ -2,10 +2,10 @@
 <body>
   <div  id="buttoncontainer">
     <center><div class="item">
-        <button>챌린지 생성하기</button>
+        <button><router-link to="/3-1"><a>챌린지 생성하기</a></router-link></button>
     </div></center>
     <center><div>
-        <button>챌린지 검색</button>
+        <button><router-link to="/3-2"><a>챌린지 검색</a></router-link></button>
     </div></center>
   </div>
   <div  id="challengelist">
@@ -24,25 +24,27 @@
 <script>
 /* eslint-disable */
 export default {
-  name: "3-0",
-  data() {
-    return {
-    
-    };
-  },
-  methods: {
-    hoverevent(){
-       this.style.b
-    }
-  }
-}
+   setup() {
+    const ongoingchallenelist = ["운동하기","공부하기","이거하고 놀기","저거하고놀기"];
+
+    return {ongoingchallenelist};
+   },
+};
+
 </script>
 <style scoped>
+a{
+    text-decoration: none;
+    color:white;
+}
 button{
   background-color:tomato;
   border:none;
   color:white;
   border-radius:10px;
+  margin: 30px;
+  width: 400px;
+  height: 50px;
 }
 button:hover{
   background-color:tomato;

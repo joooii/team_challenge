@@ -13,12 +13,32 @@
     <br>
     <br>
     <div class="item" id="challengelist1">
-      <h5>회고록 작성자 : 회고록 제목</h5>
-      <h5 v-for="(회고록제목 ,i) in 회고록제목" :key="i" >{{회고록작성자}} : {{회고록제목[i]}}</h5>
+      <div v-for="(회고록제목 ,i) in 회고록제목" :key="i">
+        <h5>{{회고록작성자}} : {{회고록제목}}</h5>
+      </div>
     </div>
     </div>
 </template>
+<script>
+/* eslint-disable */
+export default {
+  name: "4-0",
+    setup() {
+    const 회고록제목 = ["아 오늘그냥 게임해버렸다", "폴가이즈 ㄱㄱ?"];
+    
+    return {회고록제목};
+    const 챌린지명 = ["운동하기","공부하기","하기싫어","ㅋㅋ안함"];
 
+    return (챌린지명);
+    const 회고록작성자 = ["박종우"]
+
+    return (회고록작성자);
+   },
+  methods: {
+
+  }
+}
+</script>
 <style scoped>
 h5{
     border-bottom: 1px;
@@ -35,6 +55,8 @@ button{
     border:none;
     color:white;
     border-radius:3px;
+    margin-top:5px;
+    margin-right:3px;
 }
 #addbutton{
     display: flex;
@@ -51,6 +73,7 @@ button{
   border-radius:10px;
   margin-left:250px;
   margin-right:250px;
+  border: 2px solid tomato;
 }
 h4{
   padding: 3px;

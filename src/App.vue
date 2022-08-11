@@ -1,14 +1,20 @@
 <template>
   <nav>
-    <span class="logo"><router-link to="/">LOGO</router-link></span>&nbsp;
-    <span class="mypage"><router-link to="/about">마이페이지</router-link></span>&nbsp;
-    <span class="3-2"><router-link to="/3-2">3-2</router-link></span>&nbsp;
+    <span class="logo"><router-link to="/3-0">LOGO</router-link></span>&nbsp;
+    <span class="MyPage"><router-link to="/MyPage">마이페이지</router-link></span>&nbsp;
     <span class="3-0"><router-link to="/3-0">3-0</router-link></span>&nbsp;
     <span class="4-0"><router-link to="/4-0">4-0</router-link></span>&nbsp;
     <span class="5-0"><router-link to="/5-0">5-0</router-link></span>&nbsp;
     <span class="6-0"><router-link to="/6-0">6-0</router-link></span>&nbsp;
+     <span class="login"><router-link to="/LoginPage">Login</router-link></span>&nbsp;
+    <span class="join"><router-link to="/JoinPage">Join</router-link></span>&nbsp;
+    <span class="WriteReview"><router-link to="/WriteReview">WriteReview</router-link></span>&nbsp;
+    <span class="MyReview"><router-link to="/MyReview">MyReview</router-link></span>&nbsp;
+    <span class="3-2"><router-link to="/3-2">3-2</router-link></span>&nbsp;
+    <span class="3-1"><router-link to="/3-1">3-1</router-link></span>&nbsp;
   </nav>
   <router-view/>
+  <span class="back"><button id="back">이전</button></span>
 </template>
 
 <script>
@@ -90,13 +96,6 @@ nav a.router-link-exact-active {
 .item {
   display: flex;
 }
-
-button{
-  margin: 30px;
-  width: 400px;
-  height: 50px;
-}
-
 #challengelist{
   border:5px;
   border-color:black;
@@ -148,5 +147,13 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
-
+.back {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+#back {
+  height: 50px;
+  width: 100px;
+}
 </style>

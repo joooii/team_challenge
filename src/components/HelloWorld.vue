@@ -1,60 +1,61 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router" target="_blank" rel="noopener">router</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+<body>
+  <div  id="buttoncontainer">
+    <center><div class="item">
+        <button>챌린지 생성하기</button>
+    </div></center>
+    <center><div>
+        <button>챌린지 검색</button>
+    </div></center>
   </div>
+  <div  id="challengelist">
+    <div class="item" id="challengename">
+      진행중인 챌린지
+    </div>
+    <div class="item" id="challengelist1">
+    <select class="list" multiple>
+      <option v-for="(챌린지리스트,i) in ongoingchallenelist" :key="i" >{{ongoingchallenelist[i]}}</option>
+    </select>
+    </div>
+  </div>
+
+</body>
 </template>
-
 <script>
+/* eslint-disable */
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
-</script>
+   setup() {
+    const ongoingchallenelist = ["운동하기","공부하기","이거하고 놀기","저거하고놀기"];
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+    return {ongoingchallenelist};
+   },
+};
+
+</script>
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+button{
+  background-color:tomato;
+  border:none;
+  color:white;
+  border-radius:10px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+button:hover{
+  background-color:tomato;
+  border:none;
+  color:white;
+  border-radius:10px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+#challengename{
+  border:none;
+  border-radius:10px;
+  background-color:tomato;
+  color:white;
 }
-a {
-  color: #42b983;
+#challengelist{
+  border:2px solid tomato;
+  border-color:tomato;
+  border-radius:10px;
+  margin-left:250px;
+  margin-right:250px;
 }
 </style>
