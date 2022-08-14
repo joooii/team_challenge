@@ -33,10 +33,13 @@
     <div class="comment">
         <div class="comment_add">
             <div><th>댓글</th></div>
-            <textarea class="comment_write" v-model="commentWrite"></textarea>
+            <textarea class="comment_write" v-model="commentWrite" placeholder="댓글을 입력하세요."></textarea>
             <button @click="createComment">댓글달기</button>
         </div>
-        <p>{{commentWrite}}</p>
+        <!-- <p>{{commentWrite}}</p> -->
+    </div>
+    <div class="category">
+        <button class="category_btn">목록</button>
     </div>
 </body>
 
@@ -126,12 +129,25 @@ table {
     resize:none;
     width:80%;
     height:80px;
+    white-space: pre-line;
+    /* border-radius: 10px; */
     /* border: 1px solid gainsboro; */
 }
 .comment button {
     border:none;
-    background-color: tomato;
+    background-color: rgb(0,42,134);
     color: white;
+    /* border-radius: 10px; */
+}
+
+.category_btn {
+    width: 80px;
+    height: 40px;
+    margin-left: 730px;
+    margin-top: 20px;
+    border: none;
+    /* background-color:rgb(25, 69, 162); */
+    /* border-radius: 10px; */
 }
 
 </style>

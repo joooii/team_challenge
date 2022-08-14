@@ -5,7 +5,7 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    redirect: '/LoginPage'
+    redirect: '/login'
   },
   {
     path: '/main',
@@ -46,14 +46,14 @@ const routes = [
     component: () => import('../views/3-2.vue')
   },
   {
-    path: '/LoginPage',
-    name: 'LoginPage',
-    component: () => import('../views/LoginPage.vue')
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/login.vue')
   },
   {
-    path: '/JoinPage',
-    name: 'JoinPage',
-    component: () => import('../views/JoinPage.vue')
+    path: '/SignUp',
+    name: 'SignUp',
+    component: () => import('../views/SignUp.vue')
   },
   {
     path: '/3-1',

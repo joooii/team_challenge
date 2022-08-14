@@ -54,7 +54,7 @@ footer {
 }
 .makebtn {
     border: none;
-    background-color: tomato;
+    background-color: rgb(0,42,134);
     width: 200px;
     font-size: 14px;
     color: white;

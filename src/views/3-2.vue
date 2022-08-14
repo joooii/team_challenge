@@ -36,7 +36,7 @@ export default {
 .search_bar {
     width: 40%;
     height: 38px;
-    border: 1px solid tomato;
+    border: 1px solid rgb(0,42,134);
     outline: none;
     margin-top: 20px;
 }
@@ -45,7 +45,7 @@ export default {
     width: 4%;
     height: 43px;
     border: none;
-    background-color: rgba(255, 99, 71, 0.925);
+    background-color: rgb(14, 60, 160);
     color: white;
 }
 
@@ -57,14 +57,14 @@ export default {
 }
 
 .search_challenge_list {
-border: 1px solid rgb(174, 174, 174);
+border: 1px solid rgb(0,42,134);
 width: 50%;
 margin: auto;
 text-align: left;
 }
 
 .list_title {
-    border-bottom: 1px solid rgb(174, 174, 174);
+    border-bottom: 1px solid rgb(0,42,134);
     text-align: center;
     padding: 5px;
 }

@@ -6,8 +6,8 @@
     <span class="4-0"><router-link to="/4-0">4-0</router-link></span>&nbsp;
     <span class="5-0"><router-link to="/5-0">5-0</router-link></span>&nbsp;
     <span class="6-0"><router-link to="/6-0">6-0</router-link></span>&nbsp;
-    <span class="login"><router-link to="/LoginPage">Login</router-link></span>&nbsp;
-    <span class="join"><router-link to="/JoinPage">Join</router-link></span>&nbsp;
+    <span class="login"><router-link to="/login">Login</router-link></span>&nbsp;
+    <span class="SignUp"><router-link to="/SignUp">SignUp</router-link></span>&nbsp;
     <span class="WriteReview"><router-link to="/WriteReview">WriteReview</router-link></span>&nbsp;
     <span class="MyReview"><router-link to="/MyReview">MyReview</router-link></span>&nbsp;
     <span class="3-2"><router-link to="/3-2">3-2</router-link></span>&nbsp;
@@ -36,22 +36,22 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
+/* body {
+  margin:0px;
+} */
 nav{
   display: flex;
   align-items: center;
   border-bottom: 1px solid gainsboro;
-  /* background-color: rgb(251, 228, 194); */
+  /* background-color: #b6b7b9dc; */
   margin: 0;
   padding: 16px;
 }
-
 nav a {
   font-weight: bold;
   color: #2c3e50;
   /* text-decoration: none; */
 }
-
 .logo{
   margin: auto;
 }
@@ -82,11 +82,9 @@ nav a {
 .bottom{
   height: 300px;
 } */
-
 /* nav {
   padding: 30px;
 } */
-
 nav a.router-link-exact-active {
   color: #42b983;
 }
@@ -107,7 +105,6 @@ nav a.router-link-exact-active {
   border-color:black;
   border-style:solid;
 }
-
 #challengename{
   width:15%;
   border:2px;
@@ -117,7 +114,6 @@ nav a.router-link-exact-active {
   margin-top:10px;
   justify-content: center;
 }
-
 #challengelist1{
   margin-left:15px;
   margin-right:15px;
@@ -141,16 +137,13 @@ nav a.router-link-exact-active {
 /* .mypage{
   margin-right: 0px;
 } */
-
 /* nav {
   padding: 30px;
 } */
-
 /* nav a {
   font-weight: bold;
   color: #2c3e50;
 } */
-
 /* nav a.router-link-exact-active {
   color: #42b983;
 } */
@@ -165,7 +158,7 @@ nav a.router-link-exact-active {
   height: 50px;
   width: 100px;
   border: none;
-  background-color: tomato;
+  background-color: rgb(0,42,134);
   color: white;
   border-radius: 10px;
 }
