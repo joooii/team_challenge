@@ -19,8 +19,8 @@
       </div>
     </div>
 
-    <div id="joinbutton">
-    <button class="joinbutton" @click="modal = true">참여하기</button>
+    <div>
+      <button class="joinbutton" @click="modal = true">참여하기</button>
     </div>
 
 </template>
