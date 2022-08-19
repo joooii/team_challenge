@@ -26,20 +26,21 @@
                     <th>이미지</th>
                     <td class="txt_img"><img src="../assets/logo.png" alt=""></td>
                 </tr>
-                <!-- 이미지는 경로 설정으로 나타내라는데 -->
+                <!-- 이미지는 경로 설정으로 나타내기 -->
             </table>
         </form>
     </div>
     <div class="comment">
         <div class="comment_add">
             <div><th>댓글</th></div>
-            <textarea class="comment_write" v-model="commentWrite" placeholder="댓글을 입력하세요."></textarea>
-            <button @click="createComment">댓글달기</button>
+            <textarea class="comment_write" placeholder="댓글을 입력하세요."></textarea>
+            <button class="add_btn" @click="createComment" @mouseover="hover = true" @mouseleave="hover = false"
+            :class="{'add_btn-hover': hover}">댓글달기</button>
         </div>
-        <!-- <p>{{commentWrite}}</p> -->
     </div>
     <div class="category">
-        <button class="category_btn">목록</button>
+        <button class="category_btn" @mouseover="hover2 = true" @mouseleave="hover2 = false"
+        :class="{'category_btn-hover': hover2}">목록</button>
     </div>
 </body>
 
@@ -50,31 +51,20 @@
 export default {
     data () {
         return {
-            // body: this.$route.query
             title: '',
             cont: '',
             view: '',
-            commentWrite: ''
-            // num: this.$route.query.num
+            commentWrite: '',
+            hover: false,
+            hover2: false
         }
     }
-    // mounted () {
-        // this.fnGetView ()
-    // },
-    // method: {
-    //     fnGetView () {
-    //         this.$
-    //     }
 }
 
 </script>
 
 <style scoped>
 #review {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* margin-right: 100px; */
     margin-left:20%;
 }
 table {
@@ -130,14 +120,12 @@ table {
     width:80%;
     height:80px;
     white-space: pre-line;
-    /* border-radius: 10px; */
-    /* border: 1px solid gainsboro; */
 }
-.comment button {
+.add_btn {
     border:none;
     background-color: rgb(0,42,134);
     color: white;
-    /* border-radius: 10px; */
+    cursor: pointer;
 }
 
 .category_btn {
@@ -146,8 +134,14 @@ table {
     margin-left: 730px;
     margin-top: 20px;
     border: none;
-    /* background-color:rgb(25, 69, 162); */
-    /* border-radius: 10px; */
+    cursor: pointer;
+    background-color: rgb(232, 232, 232);
 }
-
+/* hover */
+.add_btn-hover {
+    background-color: rgb(12, 59, 161);
+}
+.category_btn-hover {
+    background-color: gainsboro;
+}
 </style>

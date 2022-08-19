@@ -10,7 +10,6 @@
             <div class="idform">
                 <label for="id">아이디</label>
                 <input type="text" class="text_field" v-model="user.userid" placeholder="아이디" @blur="checkDuplicate" />
-                <!-- <input type="text" class="text_field" v-model="user.userid" placeholder="아이디"> -->
 
                 <div class="idconfirm">
                     <button class="idconfirm_chk" :click="doubleChk">아이디 중복 확인</button>
@@ -21,7 +20,6 @@
             <div class="pwform">
                 <label for="password">비밀번호</label>
                 <input type="password" class="text_field" v-model="user.password" placeholder="비밀번호" />
-                <!-- <input type="password" class="text_field" v-model="user.password" placeholder="비밀번호"> -->
             </div>
 
             <div class="nameform">
@@ -30,8 +28,8 @@
             </div>
 <!-- 이름의 v-model은 블로그와 다름(user. 추가) -->
             <div>
-                <!-- <input type="submit" class="submit_btn" value="가입하기"> -->
-                <button :click="signUp" class="submit_btn" type="submit">가입하기</button>
+                <button :click="signUp" @mouseover="hover = true" @mouseleave="hover = false" :class="{'submit_btn-hover': hover}"
+                class="submit_btn" type="submit">가입하기</button>
             </div>
         </form>
     </div>
@@ -53,7 +51,8 @@ export default {
                 password: '',
                 name: '',
                 doubleId: false
-            }
+            },
+            hover: false
         }
     },
     methods: {
@@ -148,7 +147,11 @@ label {
     width: 320px;
     background-color: rgb(0,42,134);
     margin-top: 10px;
-    /* margin-left: 100px; */
     color: white;
+    cursor: pointer;
+}
+/* hover */
+.submit_btn-hover {
+    background-color: rgb(12, 59, 161);
 }
 </style>

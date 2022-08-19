@@ -6,31 +6,27 @@
     </header>
 
     <body>
-        <div class="login_form">
-          <div class="input_row">
-            <label for="id">아이디</label>
-            <input type="text" class="text_field" id="id" v-model="user.userid" placeholder="아이디">
-          </div>
-
-          <div class="input_row">
-            <label for="password">비밀번호</label>
-            <input type="password" class="text_field" id="password" v-model="user.password" placeholder="비밀번호">
-          </div>
-          <button @click="login" class="submit_btn" value="로그인">로그인</button>
-            <!-- <form name="loginForm" style="text-align:center;"> -->
-                <!-- <input type="text" v-model="userId" name="idInput" class="text_field" placeholder="아이디" ref="idInput" /><br> -->
-                <!-- <input type="password" v-model="userPassword" name="pwInput" class="text_field" placeholder="비밀번호" ref="pwInput" /><br> -->
-                <!-- <div class="submit_form">
-                    <input type="submit" @click="loginSubmit" class="submit_btn" value="로그인">
-                </div> -->
-            <!-- </form> -->
-            <div>
-              <router-link to="/JoinPage">
-                <button class="login_join">회원가입</button>
-              </router-link>
-              <!-- 회원가입 누르면 회원가입창 이동 -->
-            </div>
+      <div id="login_form">
+        <div>
+          <label for="id">아이디</label>
+          <input type="text" class="text_field" id="id" v-model="user.userid" placeholder="아이디">
         </div>
+
+        <div>
+          <label for="password">비밀번호</label>
+          <input type="password" class="text_field" id="password" v-model="user.password" placeholder="비밀번호">
+        </div>
+
+        <button @click="login" @mouseover="hover = true" @mouseleave="hover = false" :class="{'submit_btn-hover': hover}"
+        class="submit_btn" value="로그인">로그인</button>
+
+          <div>
+            <router-link to="/SignUp">
+              <button class="login_join" @mouseover="hover2 = true" @mouseleave="hover2 = false" :class="{'login_join-hover2': hover2}">회원가입</button>
+            </router-link>
+              <!-- 회원가입 누르면 회원가입창 이동 -->
+        </div>
+      </div>
     </body>
 </template>
 
@@ -43,7 +39,9 @@ export default {
       user: {
         userid: '',
         password: ''
-      }
+      },
+      hover: false,
+      hover2: false
     }
   },
   methods: {
@@ -62,6 +60,8 @@ export default {
         alert(err);
       })
     },
+    // 위는 블로그대로 한거
+    
     login () {
       if (this.user.userid === '') {
         alert('아이디를 입력해주세요.');
@@ -95,7 +95,7 @@ label {
 .login_info {
     font-size: 13px;
 }
-.login_form {
+#login_form {
     width: 300px;
     margin-right: auto;
     margin-left: auto;
@@ -116,10 +116,8 @@ label {
     width: 320px;
     background-color: rgb(0,42,134);
     margin-bottom: 15px;
-    /* margin-top */
-    /* margin-left: 100px; */
     color: white;
-    /* border-radius: 10px; */
+    cursor: pointer;
 }
 .login_join{
     font-size: 14px;
@@ -128,5 +126,13 @@ label {
     width: 320px;
     background-color: rgb(0,42,134);
     color: white;
+    cursor: pointer;
+}
+/* hover 구현 */
+.submit_btn-hover {
+  background-color: rgb(12, 59, 161);
+}
+.login_join-hover2 {
+  background-color: rgb(12, 59, 161);
 }
 </style>

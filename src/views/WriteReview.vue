@@ -14,22 +14,25 @@
             이미지 추가
               <input class="imgform_control" type="file" id="formFile">
             </div>
-            <p>{{title}}</p>
-            <p>{{cont}}</p>
+            <!-- <p>{{title}}</p> -->
+            <!-- <p>{{cont}}</p> -->
         </form>
     </div>
 </body>
 <footer>
     <div class="footer_right">
-        <button class="add_btn"><a href="javascript:;" @click="fnAddProc"><p>회고록 추가</p></a></button>
-        <!-- <router-link to="MyReview"><button class="makebtn"><p>회고록 추가</p></button></router-link> -->
-        <!-- 추가 누르면 MyReview로 넘어감 -->
+        <button class="add_btn" @mouseover="hover = true" @mouseleave="hover = false" :class="{'add_btn-hover': hover}">
+          <a href="javascript:;" @click="fnAddProc"><p>회고록 추가</p></a></button>
+<!-- <router-link to="MyReview"><button class="makebtn"><p>회고록 추가</p></button></router-link> -->
+<!-- 추가 누르면 MyReview로 넘어감 -->
     </div>
 </footer>
 </template>
 
 <script>
 /* eslint-disable */
+import axios from 'axios';
+
 export default {
   name: 'App',
   data () {
@@ -37,7 +40,8 @@ export default {
       title: '',
       cont: '',
       id: 'admin',
-      form: '' // form 데이터 전송
+      form: '', // form 데이터 전송,
+      hover: false
     }
   },
   method: {
@@ -52,7 +56,7 @@ export default {
         cont: this.cont,
         id: this.id
       }
-      // 백엔드 머 어쩌공 좀 더 자세히 공부
+
       this.$axios.post('http://localhost:3000/api/board', this.form)
         .then((res) => {
           if (res.data.success) {
@@ -124,5 +128,10 @@ footer {
     width: 200px;
     font-size: 14px;
     border-radius: 10px;
+    cursor: pointer;
+}
+/* hover */
+.add_btn-hover {
+    background-color: rgb(12, 59, 161);
 }
 </style>

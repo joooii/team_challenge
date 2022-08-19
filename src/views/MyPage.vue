@@ -2,6 +2,7 @@
   <div class="MyPage">
     <h1>마이페이지</h1>
   </div>
+
   <div class="container">
     <div class="top">
         <div class="top-left">
