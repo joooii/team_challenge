@@ -74,7 +74,7 @@ export default {
         return;
       }
         alert('로그인 되었습니다.');
-        this.$router.push({name:'home'});
+        this.$router.push({name:'3-0'});
         // input 값 모두 입력했을시에만 화면 넘어감
   }
 }

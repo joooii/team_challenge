@@ -4,7 +4,8 @@
     <div class="search_challenge">
         <!-- <SearchBar hint="Search hint" :text="searchPhrase" @textChange="onTextChanged" @submit="onSubmit" /> -->
         <input type="text" class="search_bar" placeholder=" 검색어 입력">
-        <button class="search_btn">검색</button>
+        <button class="search_btn" @mouseover="hover = true" @mouseleave="hover = false"
+        :class="{'search_btn-hover': hover}">검색</button>
     </div>
     <br>
     <br>
@@ -25,6 +26,11 @@
 /* eslint-disable */
 export default {
     name: "searchList",
+    data () {
+        return {
+            hover: false
+        }
+    },
     setup() {
         const challengeList = ["부트캠프", "토익", "3대500", "매일 6시 기상"];
         return {challengeList};
@@ -47,6 +53,7 @@ export default {
     border: none;
     background-color: rgb(14, 60, 160);
     color: white;
+    cursor: pointer;
 }
 
 .search_challenge_list li {
@@ -67,5 +74,9 @@ text-align: left;
     border-bottom: 1px solid rgb(0,42,134);
     text-align: center;
     padding: 5px;
+}
+/* hover */
+.search_btn-hover {
+    background-color: rgb(12, 59, 161);
 }
 </style>

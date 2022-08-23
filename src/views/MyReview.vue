@@ -1,38 +1,38 @@
-<!-- 6-1페이지에서 내용 입력 받아야 함 -->
 <template>
-<body>
-    <h1>회고록</h1>
-    <div id="review">
-        <form>
-            <table class="tbadd">
-                <tr class="tbtitle">
-                    <th>제목</th>
-                    <th>{{title}}</th>
-                    <!-- 제목은 굵은 글씨로 가도 ㄱㅊ을듯?-->
-                </tr>
-                <tr class="tbauthor">
-                    <th>작성자</th>
-                    <td></td>
-                </tr>
-                <tr class="tbauthor_id">
-                    <th>작성자 ID</th>
-                    <td></td>
-                </tr>
-                <tr class="tbcont">
-                    <th>느낀점</th>
-                    <td class="txt_cont" v-html="cont"></td>
-                </tr>
-                <tr class="tbimg">
-                    <th>이미지</th>
-                    <td class="txt_img"><img src="../assets/logo.png" alt=""></td>
-                </tr>
-                <!-- 이미지는 경로 설정으로 나타내기 -->
-            </table>
-        </form>
-    </div>
-    <div class="comment">
+<h1>회고록</h1>
+<div>
+    <table v-for="value in data" :key="value">
+        <colgroup>
+            <col width="8%">
+        </colgroup>
+        <tr>
+            <th>제목</th>
+            <td>{{value.title}}</td>
+        </tr>
+        <tr>
+            <th>작성자</th>
+            <td>{{value.writer}}</td>
+        </tr>
+        <tr>
+            <th>작성자 ID</th>
+            <td>{{value.writer_id}}</td>
+        </tr>
+        <tr>
+            <th>느낀점</th>
+            <td class="txt_cont">{{value.cont}}</td>
+        </tr>
+        <tr class="img">
+            <th>이미지</th>
+            <td><img src="" alt=""></td>
+        </tr>
+    </table>
+</div>
+
+<div class="comment">
         <div class="comment_add">
-            <div><th>댓글</th></div>
+            <!-- <div> -->
+                <th>댓글</th>
+            <!-- </div> -->
             <textarea class="comment_write" placeholder="댓글을 입력하세요."></textarea>
             <button class="add_btn" @click="createComment" @mouseover="hover = true" @mouseleave="hover = false"
             :class="{'add_btn-hover': hover}">댓글달기</button>
@@ -42,69 +42,45 @@
         <button class="category_btn" @mouseover="hover2 = true" @mouseleave="hover2 = false"
         :class="{'category_btn-hover': hover2}">목록</button>
     </div>
-</body>
-
 </template>
 
 <script>
 /* eslint-disable */
+import data from '@/data'
+
 export default {
+    name: 'MyReview',
     data () {
         return {
-            title: '',
-            cont: '',
-            view: '',
-            commentWrite: '',
+            data: data,
             hover: false,
             hover2: false
         }
     }
 }
-
 </script>
 
 <style scoped>
-#review {
-    margin-left:20%;
-}
 table {
-    width: 75%;
-}
-.tbadd {
     border-top:1px solid #888;
-    /* border-bottom:1px solid #888; */
+    margin-left: 250px;
 }
 
-.tbadd th, .tbadd td {
-    border-bottom:1px solid gainsboro; 
+table th, table td {
+    border-bottom:1px solid #eee; 
     padding:5px 0;
 }
 
-.tbadd th {
-    text-align: left;
-}
-.tbadd td {
-    padding:10px 10px; 
+table td {
+    padding:10px 10px;
     box-sizing:border-box;
     text-align:left;
 }
-
-.tbadd.tbtitle {
-    margin-top:10px;
-}
-
-.tbadd.tbauthor {
-    display: flex;
-}
-
-.tbadd td.txt_cont {
-    height:150px; 
+table td.txt_cont {
+    height:150px;
     vertical-align:top;
 }
 
-.tbadd td.txt_img {
-    height: auto;
-}
 .comment {
     width: 60%;
     margin-left:20%;
@@ -144,4 +120,5 @@ table {
 .category_btn-hover {
     background-color: gainsboro;
 }
+
 </style>

@@ -28,14 +28,11 @@ export default {
     
     return {회고록제목};
     const 챌린지명 = ["운동하기","공부하기","하기싫어","ㅋㅋ안함"];
-
     return (챌린지명);
     const 회고록작성자 = ["박종우"]
-
     return (회고록작성자);
    },
   methods: {
-
   }
 }
 </script>
@@ -51,7 +48,7 @@ button{
     justify-self:right;
     width:auto;
     height: auto;
-    background-color:tomato;
+    background-color:rgb(0,42,134);;
     border:none;
     color:white;
     border-radius:3px;
@@ -65,15 +62,15 @@ button{
 .item1{
   border:none;
   border-radius:1px;
-  background-color:tomato;
+  background-color:rgb(0,42,134);;
   color:white;
 }
 #challengelist{
-  border-color:tomato;
+  border-color:rgb(0,42,134);;
   border-radius:10px;
   margin-left:250px;
   margin-right:250px;
-  border: 2px solid tomato;
+  border: 2px solid rgb(0,42,134);;
 }
 h4{
   padding: 3px;

@@ -20,17 +20,15 @@ export default {
     
     return {챌린지기간별일정};
     const 챌린지명 = ["운동하기","공부하기","하기싫어","ㅋㅋ안함"];
-
     return (챌린지명);
    },
   methods: {
-
   }
 }
 </script>
 <style scoped>
 button{
-  background-color:tomato;
+  background-color:rgb(0,42,134);;
   border:none;
   color:white;
   border-radius:10px;
@@ -47,14 +45,14 @@ h5{
 #challengename{
   border:none;
   border-radius:10px;
-  background-color:tomato;
+  background-color:rgb(0,42,134);;
   color:white;
 }
 #challengelist{
-  border-color:tomato;
+  border-color:rgb(0,42,134);;
   border-radius:10px;
   margin-left:250px;
   margin-right:250px;
-  border: 2px solid tomato;
+  border: 2px solid rgb(0,42,134);;
 }
 </style>

@@ -2,29 +2,26 @@
 <body>
     <h1>회고록 등록</h1>
     <div class="writebox">
-        <form class="write_form">
-                <div class="reviewtitle">회고록 제목<input type="text" v-model="title" name="title" class="text_field">
-                </div>
+        <form>
+            <div>회고록 제목<input type="text" v-model="title" name="title" class="text_field"></div>
+            <div class="writer_form">작성자<input type="text" v-model="writer" class="writer">
+                작성자 ID<input type="text" v-model="writer_id" class="writer_id"></div>
 
             <div class="contform">
                 <div>느낀점 추가</div>
                 <textarea v-model="cont" name="cont" class="text_field"></textarea>
             </div>
-            <div class="imgadd">
+            <div>
             이미지 추가
               <input class="imgform_control" type="file" id="formFile">
             </div>
-            <!-- <p>{{title}}</p> -->
-            <!-- <p>{{cont}}</p> -->
         </form>
     </div>
 </body>
 <footer>
     <div class="footer_right">
-        <button class="add_btn" @mouseover="hover = true" @mouseleave="hover = false" :class="{'add_btn-hover': hover}">
-          <a href="javascript:;" @click="fnAddProc"><p>회고록 추가</p></a></button>
-<!-- <router-link to="MyReview"><button class="makebtn"><p>회고록 추가</p></button></router-link> -->
-<!-- 추가 누르면 MyReview로 넘어감 -->
+        <button class="add_btn" @click="write" @mouseover="hover = true" @mouseleave="hover = false" :class="{'add_btn-hover': hover}">
+        <p>회고록 추가</p></button>
     </div>
 </footer>
 </template>
@@ -32,44 +29,55 @@
 <script>
 /* eslint-disable */
 import axios from 'axios';
+import data from '@/data';
 
 export default {
   name: 'App',
   data () {
     return {
+      data: data,
       title: '',
+      writer: '',
+      writer_id: '',
       cont: '',
-      id: 'admin',
-      form: '', // form 데이터 전송,
       hover: false
     }
   },
-  method: {
-    fnAddProc () { // 등록 프로세스
-      if (!this.title) {
-        alert('제목을 입력해주세요')
-        this.$refs.title.focus()
-      }
-      this.form = { // 얘가 백엔드로 전송될 데이터
-        // board_code: this.board_code
+  methods: {
+    write () {
+      this.data.push({
         title: this.title,
+        writer: this.writer,
+        writer_id: this.writer_id,
         cont: this.cont,
-        id: this.id
-      }
-
-      this.$axios.post('http://localhost:3000/api/board', this.form)
-        .then((res) => {
-          if (res.data.success) {
-            alert('등록되었습니다.')
-            this.fnAddProc()
-          } else {
-            alert('실행 중 실패하였습니다.<br> 다시 이용해주세요')
-          }
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+      })
+      this.$router.push({path:'/MyReview'});
     }
+    // fnAddProc () { // 등록 프로세스
+    //   if (!this.title) {
+    //     alert('제목을 입력해주세요')
+    //     this.$refs.title.focus()
+    //   }
+    //   this.form = { // 얘가 백엔드로 전송될 데이터
+    //     // board_code: this.board_code
+    //     title: this.title,
+    //     cont: this.cont,
+    //     id: this.id
+    //   }
+
+    //   this.$axios.post('http://localhost:3000/api/board', this.form)
+    //     .then((res) => {
+    //       if (res.data.success) {
+    //         alert('등록되었습니다.')
+    //         this.fnAddProc()
+    //       } else {
+    //         alert('실행 중 실패하였습니다.<br> 다시 이용해주세요')
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       console.log(err)
+    //     })
+    // }
   }
 }
 </script>
@@ -88,6 +96,30 @@ a {
     justify-content: center;
     margin-right:70px;
 }
+
+.writer_form {
+  margin-left: 35px;
+}
+
+.writer {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    width: 230px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 34px;
+}
+
+.writer_id {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid gainsboro;
+    width: 230px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
 .text_field {
     font-size: 14px;
     padding: 10px;
@@ -130,6 +162,7 @@ footer {
     border-radius: 10px;
     cursor: pointer;
 }
+
 /* hover */
 .add_btn-hover {
     background-color: rgb(12, 59, 161);

@@ -2,10 +2,12 @@
 <body>
   <div  id="buttoncontainer">
     <center><div class="item">
-        <button><router-link to="/3-1"><a>챌린지 생성하기</a></router-link></button>
+        <button class="create_btn" @mouseover="hover = true" @mouseleave="hover = false"
+        :class="{'create_btn-hover': hover}"><router-link to="/3-1"><a>챌린지 생성하기</a></router-link></button>
     </div></center>
     <center><div>
-        <button><router-link to="/3-2"><a>챌린지 검색</a></router-link></button>
+        <button class="search_btn" @mouseover="hover2 = true" @mouseleave="hover2 = false"
+        :class="{'search_btn-hover2': hover2}"><router-link to="/3-2"><a>챌린지 검색</a></router-link></button>
     </div></center>
   </div>
   <div  id="challengelist">
@@ -21,6 +23,7 @@
 
 </body>
 </template>
+
 <script>
 /* eslint-disable */
 export default {
@@ -29,25 +32,43 @@ export default {
 
     return {ongoingchallenelist};
    },
+   data () {
+    return {
+      hover: false,
+      hover2: false
+    }
+   }
 };
 
 </script>
+
 <style scoped>
 a{
     text-decoration: none;
     color:white;
 }
-button{
-  background-color:tomato;
+.create_btn{
+  background-color:rgb(0,42,134);;
   border:none;
   color:white;
   border-radius:10px;
   margin: 30px;
   width: 400px;
   height: 50px;
+  cursor: pointer;
 }
-button:hover{
-  background-color:tomato;
+.search_btn{
+  background-color:rgb(0,42,134);;
+  border:none;
+  color:white;
+  border-radius:10px;
+  margin: 30px;
+  width: 400px;
+  height: 50px;
+  cursor: pointer;
+}
+button{
+  background-color:rgb(0,42,134);;
   border:none;
   color:white;
   border-radius:10px;
@@ -55,14 +76,20 @@ button:hover{
 #challengename{
   border:none;
   border-radius:10px;
-  background-color:tomato;
+  background-color:rgb(0,42,134);;
   color:white;
 }
 #challengelist{
-  border:2px solid tomato;
-  border-color:tomato;
+  border:2px solid rgb(0,42,134);;
+  border-color:rgb(0,42,134);;
   border-radius:10px;
   margin-left:250px;
   margin-right:250px;
+}
+.create_btn-hover {
+  background-color: rgb(12, 59, 161);
+}
+.search_btn-hover2 {
+  background-color: rgb(12, 59, 161);
 }
 </style>
